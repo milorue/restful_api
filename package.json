@@ -4,13 +4,20 @@
   "description": "simple node web serve",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
   },
+  "keywords": [
+    "heroku"
+  ],
   "author": "Milo Rue",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
     "request": "^2.88.2",
     "serve-index": "^1.9.1"
+  },
+  "engines": {
+    "node": "12.16.1"
   }
 }
