@@ -2,12 +2,18 @@ const express = require('express')
 const app = express()
 const port = 3000
 
-const request = require('request')
+
 
 const serveIndex = require('serve-index')
 
+// old test suite
+
 app.get('/', (req, res) => {
-    res.send({test: 'hello'})
+    res.send('Hello Friend')
+})
+
+app.use('/boyz', (req, res) =>{
+    res.json(['Jamie', 'David', 'Colin', 'Michael', 'Doody', 'Amanda', 'Brian', 'Brandon', 'Milo', 'Vance', 'Elijah']);
 })
 
 // middleware
@@ -20,7 +26,7 @@ app.use((req, res, next) => {
 })
 
 // passing a path to middleware
-app.use('./nest',(req, res, next) => {
+app.use('/boy',(req, res, next) => {
     console.log("Request type:" + req.method)
     next();
 })

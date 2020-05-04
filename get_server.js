@@ -1,11 +1,24 @@
 const request = require('request')
 
-request('localhost:3000', {json: true}, (err, res, body) =>{
-    if(err){
-        console.log('Shit broke')
-        console.log(err)
-    }
-    else{
-        console.log(body)
-    }
+const http = require('http')
+
+const api = {
+    hostname: 'localhost',
+    port: 300,
+    path: '/boyz',
+    method: 'GET',
+}
+
+const req = http.request(api, res =>{
+    console.log('status Code: ' + res.statusCode)
+
+    res.on('data', d =>{
+        console.log(d)
+    })
 })
+
+req.on('error', err =>{
+    console.log('drat')
+    console.error(err)
+})
+req.end
