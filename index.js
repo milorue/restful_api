@@ -1,8 +1,6 @@
 const express = require('express')
 const app = express()
-const port = 3000
-
-
+const port = 8080
 
 const serveIndex = require('serve-index')
 
@@ -17,19 +15,6 @@ app.use('/boyz', (req, res) =>{
 })
 
 // middleware
-
-
-// basic console.log middleware
-app.use((req, res, next) => {
-    console.log('Time: ', Date.now());
-    next(); // tells middleware to go to the next function
-})
-
-// passing a path to middleware
-app.use('/boy',(req, res, next) => {
-    console.log("Request type:" + req.method)
-    next();
-})
 
 app.use('/files', express.static('files'))
 app.use('/files', serveIndex('files'))
